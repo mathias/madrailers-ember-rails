@@ -227,7 +227,7 @@ body {
         -ms-box-pack: center;
         box-pack: center; }
       .keydown.deck-container .slide .content .CodeMirror {
-        font-size: 2rem;
+        font-size: 1.75rem;
         background-color: #faf4f1;
       }
       .deck-container .slide .CodeMirror-gutter-text {
