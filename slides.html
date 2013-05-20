@@ -401,6 +401,146 @@
     <section class='slide'>
       <div class='spacer top'></div>
       <div class='content'>
+        <p><code>router.js</code>:</p>
+        
+        <p><textarea class='code' display='none' mode='javascript'>GuestBookApp.Router.map(function() {&#x000A;  this.resource('entries', { path: "/" });&#x000A;});</textarea>
+    </p>
+        
+        <p>(by default)</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <p><code>router.js</code> with changes:</p>
+        
+        <p><textarea class='code' display='none' mode='javascript'>GuestBookApp.Router.map(function() {&#x000A;  this.resource('entries', function() {&#x000A;    this.route('new');&#x000A;    this.resource('entry', {path: ':entry_id'});&#x000A;  });&#x000A;});</textarea>
+    </p>
+        
+        <p>Create and view guest book entries in addition to an index</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <p><code>/routes/entries_routes.js</code>:</p>
+        
+        <p><textarea class='code' display='none' mode='javascript'>GuestBookApp.EntriesRoute = Ember.Route.extend({&#x000A;  model: function() {&#x000A;    GuestBookApp.Entry.find();&#x000A;  }&#x000A;});</textarea>
+    </p>
+        
+        <div class="notes">
+        Assuming we were a request for /entries, we go down into the index route now.
+        
+        This "find all" call on the model might get done by default now, but I wanted to point out that this is what calls our Rails resource to get the data.
+        </div>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <p><code>/controllers/entries_controller.js</code>:</p>
+        
+        <p><textarea class='code' display='none' mode='javascript'>GuestBookApp.EntriesController = Ember.ArrayController.extend({});</textarea>
+    </p>
+        
+        <div class="notes">
+        Note that we're extending the ArrayController here since we handle a collection of model instances.
+        By default, there's not a whole lot here.
+        </div>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <p><code>/models/entry.js</code>:</p>
+        
+        <p><textarea class='code' display='none' mode='javascript'>GuestBookApp.Entry = DS.Model.extend({&#x000A;  name: DS.attr("string"),&#x000A;  email: DS.attr("string"),&#x000A;  message: DS.attr("string")&#x000A;});</textarea>
+    </p>
+        
+        <p><div class="notes">
+        A couple things to note here:
+        - We have to define all our attributes that we're getting from the API.
+        - We're subclassing the DataStore classes now, instead of something from Ember.
+        - This is a relic of <code>ember-data</code> being a different project.
+        ```</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <p><code>/views/entries_view.js</code>:</p>
+        
+        <p><textarea class='code' display='none' mode='javascript'>GuestBookApp.EntriesView = Ember.View.extend({});</textarea>
+    </p>
+        
+        <div class="notes">
+        Again, not a lot going on here because we're using the basic functionality and "magic"
+        </div>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Let's look at a slightly more interesting View class</h2>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Handling browser events in the View:</h2>
+        
+        <p><textarea class='code' display='none' mode='javascript'>App.ClickableView = Ember.View.extend({&#x000A;  click: function(event) {&#x000A;    this.get('controller').send('turnItUp', 11);&#x000A;  }&#x000A;});</textarea>
+    </p>
+        
+        <div class="notes">
+        Here we're sending the message of turnItUp to our controller with 11 as the data. In this way, we can wire up DOM controls to notify changes in the application state.
+        </div>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <p>Our template for the application:</p>
+        
+        <p><code>/templates/application.handlebars</code>:</p>
+        
+        <p><textarea class='code' display='none' mode='html'><div id="container">&#x000A;  {{outlet}}&#x000A;</div></textarea>
+    </p>
+        
+        <div class="notes">
+        That's it!
+        The outlet is where our app knows to create its views.
+        </div>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <p><code>/templates/entries.handlebars</code>:</p>
+        
+        <p><textarea class='code' display='none' mode='html'><h2>Guests</h2>&#x000A;<ul>&#x000A;{{#each controller}}&#x000A;  <li>&#x000A;  <span><a href="mailto:{{email}}">{{name}}</a></span>&#x000A;  <p>{{message}}</p>&#x000A;  </li>&#x000A;{{/each}}&#x000A;</ul></textarea>
+    </p>
+        
+        <div class="notes">
+        this might be a little confusing.
+        Why are we looping over Controller?
+        Well, remember our EntriesController is an ArrayController, and it's gonna expose that list of entries to us.
+        </div>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
         <h2>Thanks! Questions?</h2>
         
         <h3>I am:</h3>
@@ -412,8 +552,6 @@
         <p>This presentation lives at:</p>
         
         <p><a href="http://blog.mattgauger.com/madrailers-ember-rails/">blog.mattgauger.com/madrailers-ember-rails/</a></p>
-        
-        <p>Outline (with notes): <a href="#">gist.github.com???</a></p>
       </div>
       <div class='spacer bottom'></div>
     </section>

@@ -325,6 +325,153 @@ Since `ember-data` has traditionally been in flux, they felt it was important to
 
 !SLIDE
 
+`router.js`:
+
+``` javascript
+GuestBookApp.Router.map(function() {
+  this.resource('entries', { path: "/" });
+});
+```
+
+(by default)
+
+!SLIDE
+
+`router.js` with changes:
+
+``` javascript
+GuestBookApp.Router.map(function() {
+  this.resource('entries', function() {
+    this.route('new');
+    this.resource('entry', {path: ':entry_id'});
+  });
+});
+```
+
+Create and view guest book entries in addition to an index
+
+!SLIDE
+
+`/routes/entries_routes.js`:
+
+``` javascript
+GuestBookApp.EntriesRoute = Ember.Route.extend({
+  model: function() {
+    GuestBookApp.Entry.find();
+  }
+});
+```
+<div class="notes">
+Assuming we were a request for /entries, we go down into the index route now.
+
+This "find all" call on the model might get done by default now, but I wanted to point out that this is what calls our Rails resource to get the data.
+</div>
+
+!SLIDE
+
+`/controllers/entries_controller.js`:
+
+``` javascript
+GuestBookApp.EntriesController = Ember.ArrayController.extend({});
+```
+
+<div class="notes">
+Note that we're extending the ArrayController here since we handle a collection of model instances.
+By default, there's not a whole lot here.
+</div>
+
+!SLIDE
+
+`/models/entry.js`:
+
+``` javascript
+GuestBookApp.Entry = DS.Model.extend({
+  name: DS.attr("string"),
+  email: DS.attr("string"),
+  message: DS.attr("string")
+});
+```
+
+<div class="notes">
+A couple things to note here:
+- We have to define all our attributes that we're getting from the API.
+- We're subclassing the DataStore classes now, instead of something from Ember.
+- This is a relic of `ember-data` being a different project.
+```
+
+!SLIDE
+
+`/views/entries_view.js`:
+
+``` javascript
+GuestBookApp.EntriesView = Ember.View.extend({});
+```
+
+<div class="notes">
+Again, not a lot going on here because we're using the basic functionality and "magic"
+</div>
+
+!SLIDE
+
+## Let's look at a slightly more interesting View class
+
+!SLIDE
+
+## Handling browser events in the View:
+
+``` javascript
+App.ClickableView = Ember.View.extend({
+  click: function(event) {
+    this.get('controller').send('turnItUp', 11);
+  }
+});
+```
+
+<div class="notes">
+Here we're sending the message of turnItUp to our controller with 11 as the data. In this way, we can wire up DOM controls to notify changes in the application state.
+</div>
+
+!SLIDE
+
+Our template for the application:
+
+`/templates/application.handlebars`:
+
+``` html
+<div id="container">
+  {{outlet}}
+</div>
+```
+
+<div class="notes">
+That's it!
+The outlet is where our app knows to create its views.
+</div>
+
+!SLIDE
+
+`/templates/entries.handlebars`:
+
+``` html
+<h2>Guests</h2>
+<ul>
+{{#each controller}}
+  <li>
+  <span><a href="mailto:{{email}}">{{name}}</a></span>
+  <p>{{message}}</p>
+  </li>
+{{/each}}
+</ul>
+```
+
+<div class="notes">
+this might be a little confusing.
+Why are we looping over Controller?
+Well, remember our EntriesController is an ArrayController, and it's gonna expose that list of entries to us.
+</div>
+
+!SLIDE
+
 ## Thanks! Questions?
 
 ### I am:
@@ -336,5 +483,3 @@ Since `ember-data` has traditionally been in flux, they felt it was important to
 This presentation lives at:
 
 [blog.mattgauger.com/madrailers-ember-rails/](http://blog.mattgauger.com/madrailers-ember-rails/)
-
-Outline (with notes): [gist.github.com???](#)
