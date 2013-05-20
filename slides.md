@@ -36,7 +36,12 @@ Or, another way of architecting these fancy websites we keep trying to build
 </div>
 
 !SLIDE
-![Bendyworks logo](images/emberjscom.png)
+![Emberjs.com website](images/emberjscom.png)
+
+<div class="notes">
+If you're curious, you can go hit up the ember.js website.
+Their guides have gotten much better and their documentation for functions and classes is better now than it used to be, too.
+</div>
 
 !SLIDE
 
@@ -44,11 +49,21 @@ Or, another way of architecting these fancy websites we keep trying to build
 
 <div class="notes">
 Why do we need another JS MVC framework?
+
+One size does not fit all.
+Ember has some unique features that take the burden of uninteresting problems off the developer.
+For example, Ember binds elements that change to DOM elements and updates them for you -- you don't have to call `render` like in other frameworks. I'll talk more about this later.
 </div>
 
 !SLIDE
 
 ## MVC => Model, View, Controller
+
+<div class="notes">
+So what does this really mean for a JS app?
+
+This is going to be for a JavaScript MVC app, which is a little different than what Rails considers MVC.
+</div>
 
 !SLIDE
 
@@ -58,17 +73,72 @@ Why do we need another JS MVC framework?
 
 !SLIDE
 
+## Templates
+
+### strings that we will render with data to present the user interface
+### (Not in the acroynm)
+
+<div class="notes">
+In Rails, this is what we call the View.. notice how we never write a View class in Rails? You could, but you don't have to.
+</div>
+
+!SLIDE
+
+## View
+
+### Translates browser events to application events
+### Binds data to a template
+
+!SLIDE
+
+## Controller
+
+### Stores representations of application state
+#### ie, a collection of model instances that came back from our API
+
+!SLIDE
+
+## Model
+
+### Stores persistant state
+#### Typically loaded and saved to a server, but doesn't have to be
+
+
+!SLIDE
+
+## Router
+
+### Manages application state
+#### Most importantly, handles URLs and sends messages the correct Controller for what is being requested
+
+!SLIDE
+
+## How does Ember.js compare to other frameworks?
+
+!SLIDE
+
+## Favors convention-over-configuration
+
+### Like Rails!
+
+!SLIDE
+
 ## Ember.js is responsible for:
 
-## Controlling the entire viewport
+### Controlling the entire viewport
 #### (versus other frameworks which do not)
 
 !SLIDE
 
 ## Ember.js is responsible for:
 
-## Getting data from our backend server
+### Getting data from our backend server
 #### In this case, Rails
+
+<div class="notes">
+But you can use other backends that conform to the ember-data API.
+Notably, Firebase is available as an ember-data backend.
+</div>
 
 !SLIDE
 
@@ -88,7 +158,6 @@ Why do we need another JS MVC framework?
 !SLIDE
 
 ## What does a simple Ember.js application look like?
-
 
 ``` javascript
 

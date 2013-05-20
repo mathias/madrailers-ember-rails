@@ -72,7 +72,12 @@
     <section class='slide'>
       <div class='spacer top'></div>
       <div class='content'>
-        <p><img src="images/emberjscom.png" alt="Bendyworks logo" /></p>
+        <p><img src="images/emberjscom.png" alt="Emberjs.com website" /></p>
+        
+        <div class="notes">
+        If you're curious, you can go hit up the ember.js website.
+        Their guides have gotten much better and their documentation for functions and classes is better now than it used to be, too.
+        </div>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -83,6 +88,10 @@
         
         <div class="notes">
         Why do we need another JS MVC framework?
+        
+        One size does not fit all.
+        Ember has some unique features that take the burden of uninteresting problems off the developer.
+        For example, Ember binds elements that change to DOM elements and updates them for you -- you don't have to call `render` like in other frameworks. I'll talk more about this later.
         </div>
       </div>
       <div class='spacer bottom'></div>
@@ -91,6 +100,12 @@
       <div class='spacer top'></div>
       <div class='content'>
         <h2>MVC => Model, View, Controller</h2>
+        
+        <div class="notes">
+        So what does this really mean for a JS app?
+        
+        This is going to be for a JavaScript MVC app, which is a little different than what Rails considers MVC.
+        </div>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -106,9 +121,84 @@
     <section class='slide'>
       <div class='spacer top'></div>
       <div class='content'>
+        <h2>Templates</h2>
+        
+        <h3>strings that we will render with data to present the user interface</h3>
+        
+        <h3>(Not in the acroynm)</h3>
+        
+        <div class="notes">
+        In Rails, this is what we call the View.. notice how we never write a View class in Rails? You could, but you don't have to.
+        </div>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>View</h2>
+        
+        <h3>Translates browser events to application events</h3>
+        
+        <h3>Binds data to a template</h3>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Controller</h2>
+        
+        <h3>Stores representations of application state</h3>
+        
+        <h4>ie, a collection of model instances that came back from our API</h4>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Model</h2>
+        
+        <h3>Stores persistant state</h3>
+        
+        <h4>Typically loaded and saved to a server, but doesn't have to be</h4>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Router</h2>
+        
+        <h3>Manages application state</h3>
+        
+        <h4>Most importantly, handles URLs and sends messages the correct Controller for what is being requested</h4>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>How does Ember.js compare to other frameworks?</h2>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Favors convention-over-configuration</h2>
+        
+        <h3>Like Rails!</h3>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
         <h2>Ember.js is responsible for:</h2>
         
-        <h2>Controlling the entire viewport</h2>
+        <h3>Controlling the entire viewport</h3>
         
         <h4>(versus other frameworks which do not)</h4>
       </div>
@@ -119,9 +209,14 @@
       <div class='content'>
         <h2>Ember.js is responsible for:</h2>
         
-        <h2>Getting data from our backend server</h2>
+        <h3>Getting data from our backend server</h3>
         
         <h4>In this case, Rails</h4>
+        
+        <div class="notes">
+        But you can use other backends that conform to the ember-data API.
+        Notably, Firebase is available as an ember-data backend.
+        </div>
       </div>
       <div class='spacer bottom'></div>
     </section>
