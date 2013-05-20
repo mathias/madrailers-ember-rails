@@ -290,7 +290,7 @@
       <div class='content'>
         <h2>Rails resource generators:</h2>
         
-        <p><textarea class='code' display='none' mode='bash'>$ rails generate entry \&#x000A;   name:string email:string \&#x000A;   message:text</textarea>
+        <p><textarea class='code' display='none' mode='&#x000A;$ rails generate entry \'>name:string email:string \&#x000A; message:text</textarea>
     </p>
       </div>
       <div class='spacer bottom'></div>
@@ -302,8 +302,9 @@
         
         <p>Routes:</p>
         
-        <p><textarea class='code' display='none' mode='ruby'>resources :entries</textarea>
-    </p>
+        <p><code>
+        resources :entries
+        </code></p>
         
         <p><code>app/models/entry.rb</code> <br />
         <code>app/controllers/entries_controller.rb</code> <br /></p>
@@ -325,7 +326,7 @@
         
         <p><code>app/serializers/entry_serializer.rb</code>:</p>
         
-        <p><textarea class='code' display='none' mode='ruby'>class EntrySerializer < ActiveModel::Serializer&#x000A;  attributes :id, :name, :email, :message&#x000A;end</textarea>
+        <p><textarea class='code' display='none' mode='&#x000A;class EntrySerializer &lt; ActiveModel::Serializer'>attributes :id, :name, :email, :message&#x000A;end</textarea>
     </p>
         
         <div class="notes">
@@ -353,7 +354,7 @@
       <div class='content'>
         <p>From <code>rails generate resource entry</code> with <code>ember-rails</code>, we get:</p>
         
-        <p><textarea class='code' display='none' mode='bash'>app/assets/javascripts/&#x000A;├── application.js&#x000A;├── controllers&#x000A;│   ├── application_controller.js&#x000A;│   ├── entry_controller.js&#x000A;│   └── entries_controller.js&#x000A;├── helpers&#x000A;├── models&#x000A;│   └── entry.js&#x000A;├── router.js&#x000A;├── routes&#x000A;│   ├── application_route.js&#x000A;│   └── entries_route.js&#x000A;├── guest_book_app.js&#x000A;├── store.js&#x000A;├── templates&#x000A;└── views</textarea>
+        <p><textarea class='code' display='none' mode=''>app/assets/javascripts/&#x000A;├── application.js&#x000A;├── controllers&#x000A;│   ├── application_controller.js&#x000A;│   ├── entry_controller.js&#x000A;│   └── entries_controller.js&#x000A;├── helpers&#x000A;├── models&#x000A;│   └── entry.js&#x000A;├── router.js&#x000A;├── routes&#x000A;│   ├── application_route.js&#x000A;│   └── entries_route.js&#x000A;├── guest_book_app.js&#x000A;├── store.js&#x000A;├── templates&#x000A;└── views</textarea>
     </p>
       </div>
       <div class='spacer bottom'></div>
@@ -363,7 +364,7 @@
       <div class='content'>
         <p><code>application.js</code></p>
         
-        <p><textarea class='code' display='none' mode='javascript'>//= require jquery&#x000A;//= require jquery_ujs&#x000A;//= require handlebars&#x000A;//= require ember&#x000A;//= require ember-data&#x000A;//= require_self&#x000A;//= require guest_book_app&#x000A;&#x000A;GuestBookApp = Ember.Application.create();</textarea>
+        <p><textarea class='code' display='none' mode='&#x000A;//= require jquery'>//= require jquery_ujs&#x000A;//= require handlebars&#x000A;//= require ember&#x000A;//= require ember-data&#x000A;//= require_self&#x000A;//= require guest_book_app&#x000A;&#x000A;GuestBookApp = Ember.Application.create();</textarea>
     </p>
         
         <p>Requires all our code and instantiates the Ember app.</p>
@@ -377,7 +378,7 @@
         
         <p>Our application code, in turn, requires all of the Ember application classes:</p>
         
-        <p><textarea class='code' display='none' mode='javascript'>//= require ./store&#x000A;//= require_tree ./models&#x000A;//= require_tree ./controllers&#x000A;//= require_tree ./views&#x000A;//= require_tree ./helpers&#x000A;//= require_tree ./templates&#x000A;//= require ./router&#x000A;//= require_tree ./routes&#x000A;//= require_self</textarea>
+        <p><textarea class='code' display='none' mode='&#x000A;//= require ./store'>//= require_tree ./models&#x000A;//= require_tree ./controllers&#x000A;//= require_tree ./views&#x000A;//= require_tree ./helpers&#x000A;//= require_tree ./templates&#x000A;//= require ./router&#x000A;//= require_tree ./routes&#x000A;//= require_self</textarea>
     </p>
       </div>
       <div class='spacer bottom'></div>
@@ -387,7 +388,7 @@
       <div class='content'>
         <p><code>store.js</code>:</p>
         
-        <p><textarea class='code' display='none' mode='javascript'>App.Store = DS.Store.extend({&#x000A;  revision: 12&#x000A;});</textarea>
+        <p><textarea class='code' display='none' mode='&#x000A;App.Store = DS.Store.extend({'>revision: 12&#x000A;});</textarea>
     </p>
         
         <p>Keeps track of the <code>ember-data</code> API version we're on</p>

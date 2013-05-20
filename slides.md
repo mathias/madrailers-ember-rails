@@ -193,7 +193,7 @@ Because [Discourse](https://github.com/discourse/discourse) is a forum system on
 
 ## Rails resource generators:
 
-``` bash
+```
 $ rails generate entry \\
    name:string email:string \\
    message:text
@@ -204,7 +204,7 @@ $ rails generate entry \\
 
 Routes:
 
-``` ruby
+```
 resources :entries
 ```
 
@@ -225,7 +225,7 @@ If we wanted views, we'd use `rails generate scaffold`
 
 `app/serializers/entry_serializer.rb`:
 
-``` ruby
+```
 class EntrySerializer < ActiveModel::Serializer
   attributes :id, :name, :email, :message
 end
@@ -250,7 +250,7 @@ Works with the same `rails generate resource entry` command we used earlier.
 
 From `rails generate resource entry` with `ember-rails`, we get:
 
-``` bash
+```
 
 app/assets/javascripts/
 ├── application.js
@@ -275,7 +275,7 @@ app/assets/javascripts/
 
 `application.js`
 
-``` javascript
+```
 //= require jquery
 //= require jquery_ujs
 //= require handlebars
@@ -295,7 +295,7 @@ Requires all our code and instantiates the Ember app.
 
 Our application code, in turn, requires all of the Ember application classes:
 
-``` javascript
+```
 //= require ./store
 //= require_tree ./models
 //= require_tree ./controllers
@@ -311,7 +311,7 @@ Our application code, in turn, requires all of the Ember application classes:
 
 `store.js`:
 
-``` javascript
+```
 App.Store = DS.Store.extend({
   revision: 12
 });
