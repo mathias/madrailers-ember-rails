@@ -113,15 +113,16 @@ In Rails, this is what we call the View.. notice how we never write a View class
 ## Model classes
 
 ### Stores persistant state
-#### Typically loaded and saved to a server, but doesn't have to be
 
+Typically loaded and saved to a server, but doesn't have to be
 
 !SLIDE
 
 ## Router and route classes
 
 ### Manages application state
-#### Most importantly, handles URLs and sends messages the correct Controller for what is being requested
+
+Most importantly, handles URLs and sends messages the correct Controller for what is being requested
 
 !SLIDE
 
@@ -131,13 +132,13 @@ In Rails, this is what we call the View.. notice how we never write a View class
 
 ## Favors convention-over-configuration
 
-### Like Rails!
+Like Rails!
 
 !SLIDE
 
 ## Opinionated about what your API should look like
 
-### This is the volatile `ember-data` project; now a part of Ember.js itself
+This is the volatile `ember-data` project; now a part of Ember.js itself
 
 <div class="notes">
 Other frameworks let you define the API and how you talk to it. But that's at the expense of developer time -- now you have to spend time maintaining your mapping to your API in addition to the business logic!
@@ -147,7 +148,7 @@ Other frameworks let you define the API and how you talk to it. But that's at th
 
 ## Ember handles rendering and re-rendering DOM elements that are bound to data
 
-### Other frameworks leave calling `render` up to you
+Other frameworks leave calling `render` up to you
 
 <div class="notes">
 As a result, this means that Ember performs best when it takes over the entire viewport.
@@ -159,55 +160,181 @@ This is unlike other frameworks in that you can't just use the framework for par
 
 ## Push state (history), URLs are handled by Ember by default
 
-### Other frameworks let you turn this on.
+Other frameworks let you turn this on
 
 !SLIDE
 
 ## Ember.js is a whole framework
 
-### Other frameworks (like Backbone) are more like LEGO blocks in my opinion.
-#### You can combine those frameworks in many ways.
-#### Ember has a set of reasonable defaults it expects you to play with.
+Other frameworks (like Backbone) are more like LEGO blocks
+
+You can combine those frameworks in many ways
+
+Ember is a set of reasonable defaults
 
 !SLIDE
 
-## What does a simple Ember.js application look like?
+## Our example project:
+## A guest book
+
+Because [Discourse](https://github.com/discourse/discourse) is a forum system on Rails and Ember, and we want to party like it's 1999!
+
+!SLIDE
+
+![dancing baby](images/dancing_baby.gif)
+
+!SLIDE
+
+## A quick refresher
+
+### On the parts of Rails we'll be using
+
+!SLIDE
+
+## Rails resource generators:
+
+``` bash
+$ rails generate entry \\
+   name:string email:string \\
+   message:text
+```
+!SLIDE
+
+## Gives us:
+
+Routes:
+
+``` ruby
+resources :entries
+```
+
+`app/models/entry.rb` <br />
+`app/controllers/entries_controller.rb` <br />
+
+(no views!)
+
+<div class="notes">
+If we wanted views, we'd use `rails generate scaffold`
+</div>
+
+!SLIDE
+
+## `active_model_serializers`
+
+### Calling `rails generate resource entry` as before gives us:
+
+`app/serializers/entry_serializer.rb`:
+
+``` ruby
+class EntrySerializer < ActiveModel::Serializer
+  attributes :id, :name, :email, :message
+end
+```
+
+<div class="notes">
+- Gives us the JSON resource
+- works with teh same resource generator as `rails generate resource` before
+
+We can trust it to pass those attributes for now, without any additional logic
+</div>
+
+!SLIDE
+
+## Introducing `ember-rails`
+
+Works with the same `rails generate resource entry` command we used earlier.
+
+`active_model_serializers` gives us the API expected by `ember-data`
+
+!SLIDE 
+
+From `rails generate resource entry` with `ember-rails`, we get:
+
+``` bash
+
+app/assets/javascripts/
+├── application.js
+├── controllers
+│   ├── application_controller.js
+│   ├── entry_controller.js
+│   └── entries_controller.js
+├── helpers
+├── models
+│   └── entry.js
+├── router.js
+├── routes
+│   ├── application_route.js
+│   └── entries_route.js
+├── guest_book_app.js
+├── store.js
+├── templates
+└── views
+```
+
+!SLIDE
+
+`application.js`
 
 ``` javascript
+//= require jquery
+//= require jquery_ujs
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require_self
+//= require guest_book_app
 
-App = Ember.Application.create();
+GuestBookApp = Ember.Application.create();
+```
 
-App.Person = Ember.Object.extend({
-  firstName: null,
-  lastName: null,
+Requires all our code and instantiates the Ember app.
 
-  fullName: function() {
-    return this.get('firstName') +
-           " " + this.get('lastName');
-  }.property('firstName', 'lastName')
-});
+!SLIDE
 
-App.IndexRoute = Ember.Route.extend({
-  model: function() {
-    var people = [
-      App.Person.create({
-        firstName: "Matt",
-        lastName: "Gauger"
-      })
-    ];
-    return people;
-  }
+`guest_book_app.js`
+
+Our application code, in turn, requires all of the Ember application classes:
+
+``` javascript
+//= require ./store
+//= require_tree ./models
+//= require_tree ./controllers
+//= require_tree ./views
+//= require_tree ./helpers
+//= require_tree ./templates
+//= require ./router
+//= require_tree ./routes
+//= require_self
+```
+
+!SLIDE
+
+`store.js`:
+
+``` javascript
+App.Store = DS.Store.extend({
+  revision: 12
 });
 ```
+
+Keeps track of the `ember-data` API version we're on
+
+<div class="notes">
+Since `ember-data` has traditionally been in flux, they felt it was important to specify it in a file.
+</div>
 
 !SLIDE
 
 ## Thanks! Questions?
 
 ### I am:
-### [twitter.com/mathiasx](https://twitter.com/mathiasx)
-### [github.com/mathias](https://github.com/mathias)
 
-### This presentation lives at:
-### [blog.mattgauger.com/madrailers-ember-rails/](http://blog.mattgauger.com/madrailers-ember-rails/)
-### Outline (with notes):[gist.github.com???](#)
+[twitter.com/mathiasx](https://twitter.com/mathiasx)
+
+[github.com/mathias](https://github.com/mathias)
+
+This presentation lives at:
+
+[blog.mattgauger.com/madrailers-ember-rails/](http://blog.mattgauger.com/madrailers-ember-rails/)
+
+Outline (with notes): [gist.github.com???](#)
