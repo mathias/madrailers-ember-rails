@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,800);
 /* Reset deck.core.css */
 .keydown.deck-container h1 {
   font-weight: normal;
@@ -47,14 +46,14 @@ body {
   -ms-box-pack: center;
   box-pack: center; }
   .keydown.deck-container h1 {
-    font-family: "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 4.5rem;
     font-weight: 800;
-    color: black;
+    color: #A1AC88;
     text-align: none; }
   .keydown.deck-container h2, .keydown.deck-container h3, .keydown.deck-container h4, .keydown.deck-container h5, .keydown.deck-container p, .keydown.deck-container li {
-    font-family: "Open Sans", "Helvetica Neue", sans-serif;
-    font-weight: normal; }
+    font-weight: normal;
+    color: #464D70;
+  }
   .keydown.deck-container h2 {
     font-size: 3.75rem; }
   .keydown.deck-container h3 {
@@ -82,7 +81,7 @@ body {
     -moz-box-pack: center;
     -ms-box-pack: center;
     box-pack: center;
-    background-color: white; }
+    background-color: #000; }
     .keydown.deck-container .slide.full-background {
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -231,7 +230,7 @@ body {
       position: absolute;
       bottom: 0;
       font-size: 1.25rem;
-      font-family: "Open Sans", "Helvetica Neue", sans-serif; }
+      font-family: "Futura", sans-serif; }
       .keydown.deck-container .slide .attribution.flickr {
         background: url(../images/flickr.png) left top no-repeat;
         padding-left: 60px; }
