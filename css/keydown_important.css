@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,800);
 /* Reset deck.core.css */
 .keydown.deck-container h1 {
   font-weight: normal;
@@ -27,7 +26,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #d7d7d7; }
+}
 
 .keydown.deck-container {
   display: -webkit-box;
@@ -47,20 +46,25 @@ body {
   -ms-box-pack: center;
   box-pack: center; }
   .keydown.deck-container h1 {
-    font-family: "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 4.5rem;
-    font-weight: 800;
-    color: black;
+    font-weight: 600;
+    color: #faf4f1;
     text-align: none; }
   .keydown.deck-container h2, .keydown.deck-container h3, .keydown.deck-container h4, .keydown.deck-container h5, .keydown.deck-container p, .keydown.deck-container li {
-    font-family: "Open Sans", "Helvetica Neue", sans-serif;
-    font-weight: normal; }
+    font-weight: normal;
+  }
   .keydown.deck-container h2 {
-    font-size: 3.75rem; }
+    font-size: 3.75rem;
+    color: #AEE239;
+  }
   .keydown.deck-container h3 {
-    font-size: 3rem; }
+    font-size: 3rem;
+    color: #4E4D4A;
+  }
   .keydown.deck-container h4 {
-    font-size: 2.25rem; }
+    font-size: 2.25rem;
+    color: #4E4D4A;
+  }
   .keydown.deck-container p, .keydown.deck-container li {
     font-size: 2rem; }
   .keydown.deck-container .deck-status {
@@ -82,7 +86,7 @@ body {
     -moz-box-pack: center;
     -ms-box-pack: center;
     box-pack: center;
-    background-color: white; }
+    background-color: #00A8C6; }
     .keydown.deck-container .slide.full-background {
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -104,10 +108,11 @@ body {
       -moz-box-pack: start;
       -ms-box-pack: start;
       box-pack: start; }
+      .keydown.deck-container .slide.full-background.test {
+        background-image: url(../images/test.png); }
       .keydown.deck-container .slide.full-background h1 {
         display: inline;
         position: absolute;
-        background-color: rgba(0, 0, 0, 0.7);
         font-weight: normal;
         font-size: 3.5rem;
         padding: 1rem;
@@ -220,7 +225,13 @@ body {
         -ms-box-pack: center;
         box-pack: center; }
       .keydown.deck-container .slide .content .CodeMirror {
-        font-size: 1rem; }
+        font-size: 2rem;
+        background-color: #faf4f1;
+      }
+      .deck-container .slide .CodeMirror-gutter-text {
+        background-color: #faf4f1;
+        color: #4E4D4A;
+      }
     .keydown.deck-container .slide .attribution {
       -webkit-background-size: contain;
       -moz-background-size: contain;
@@ -229,7 +240,7 @@ body {
       position: absolute;
       bottom: 0;
       font-size: 1.25rem;
-      font-family: "Open Sans", "Helvetica Neue", sans-serif; }
+      }
       .keydown.deck-container .slide .attribution.flickr {
         background: url(../images/flickr.png) left top no-repeat;
         padding-left: 60px; }

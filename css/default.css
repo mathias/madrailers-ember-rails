@@ -1,19 +1,23 @@
-.cm-s-default span.cm-keyword {color: #708;}
-.cm-s-default span.cm-atom {color: #219;}
-.cm-s-default span.cm-number {color: #164;}
-.cm-s-default span.cm-def {color: #00f;}
-.cm-s-default span.cm-variable {color: black;}
-.cm-s-default span.cm-variable-2 {color: #05a;}
-.cm-s-default span.cm-variable-3 {color: #0a5;}
-.cm-s-default span.cm-property {color: black;}
-.cm-s-default span.cm-operator {color: black;}
-.cm-s-default span.cm-comment {color: #a50;}
-.cm-s-default span.cm-string {color: #a11;}
-.cm-s-default span.cm-string-2 {color: #f50;}
-.cm-s-default span.cm-meta {color: #555;}
-.cm-s-default span.cm-error {color: #f00;}
-.cm-s-default span.cm-qualifier {color: #555;}
-.cm-s-default span.cm-builtin {color: #30a;}
-.cm-s-default span.cm-bracket {color: #cc7;}
-.cm-s-default span.cm-tag {color: #170;}
-.cm-s-default span.cm-attribute {color: #00c;}
+/* Loosely based on the Middefault Textmate theme */
+
+.cm-s-default { background: #0a001f; color: #f8f8f8; }
+.cm-s-default span.CodeMirror-selected { background: #a8f !important; }
+.cm-s-default .CodeMirror-gutter { background: #0a001f; border-right: 1px solid #aaa; }
+.cm-s-default .CodeMirror-gutter-text { color: #f8f8f8; }
+.cm-s-default .CodeMirror-cursor { border-left: 1px solid white !important; }
+
+.cm-s-default span.cm-atom { color: #845dc4; }
+.cm-s-default span.cm-bracket { color: #8da6ce; }
+.cm-s-default span.cm-builtin { font-weight: bold; color: #077; }
+.cm-s-default span.cm-builtin, .cm-s-default span.cm-special { color: #ff9e59; }
+.cm-s-default span.cm-comment { color: #6900a1; }
+.cm-s-default span.cm-comment { color: #6900a1; }
+.cm-s-default span.cm-error { color: #9d1e15; }
+.cm-s-default span.cm-keyword { color: #599eff; }
+.cm-s-default span.cm-meta { color: #7678e2; }
+.cm-s-default span.cm-number, .cm-s-default span.cm-attribute { color: #ffd500; }
+.cm-s-default span.cm-special { font-weight: bold; color: #0aa; }
+.cm-s-default span.cm-string { color: #37f14a; }
+.cm-s-default span.cm-variable, .cm-s-default span.cm-variable-2, .cm-s-default span.cm-tag { color: #99b2ff; }
+.cm-s-default span.cm-variable-3, .cm-s-default span.cm-def { color: white; }
+

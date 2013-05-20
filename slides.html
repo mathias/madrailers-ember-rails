@@ -19,6 +19,7 @@
     <link href="css/keydown.css" rel="stylesheet" type="text/css"/>
     <link href="css/default.css" rel="stylesheet" type="text/css"/>
     <link href="css/horizontal-slide.css" rel="stylesheet" type="text/css"/>
+    <link href="css/keydown_important.css" rel="stylesheet" type="text/css"/>
     <link href="css/matt-theme.css" rel="stylesheet" type="text/css"/>
     <!-- Modernizr (provided for legacy browsers) -->
     <script src="deck.js/support/modernizr.custom.js" type="text/javascript"></script>
@@ -38,17 +39,110 @@
     <section class='slide'>
       <div class='spacer top'></div>
       <div class='content'>
+        <h2>I work at Bendyworks</h2>
+        
+        <p><img src="images/bendy.png" alt="Bendyworks logo" /></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
         <h2>What is Ember.js?</h2>
         
-        <p><textarea class='code' display='none' mode='ruby'>def method&#x000A;  puts "Hello, World"&#x000A;end</textarea>
+        <p>A framework for JS MVC apps</p>
+        
+        <div class="notes">
+        Or, another way of architecting these fancy websites we keep trying to build
+        </div>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>MVC => Model, View, Controller</h2>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>MVC => Model, View, Controller</h2>
+        
+        <p>(Let's not get in a debate as to whether it's really MVC when we say JS MVC, ok?)</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Ember.js is responsible for:</h2>
+        
+        <h2>Controlling the entire viewport</h2>
+        
+        <h4>(versus other frameworks which do not)</h4>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Ember.js is responsible for:</h2>
+        
+        <h2>Getting data from our backend server</h2>
+        
+        <h4>In this case, Rails</h4>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Ember.js is responsible for:</h2>
+        
+        <h2>Rendering templates with the data</h2>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Ember.js is responsible for:</h2>
+        
+        <h2>Handling interaction with the user</h2>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Ember.js is responsible for:</h2>
+        
+        <h2>Saving changed data back to the backend</h2>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>What does a simple Ember.js application look like?</h2>
+        
+        <p><textarea class='code' display='none' mode='javascript'>App = Ember.Application.create();&#x000A;&#x000A;App.Person = Ember.Object.extend({&#x000A;  firstName: null,&#x000A;  lastName: null,&#x000A;&#x000A;  fullName: function() {&#x000A;    return this.get('firstName') +&#x000A;           " " + this.get('lastName');&#x000A;  }.property('firstName', 'lastName')&#x000A;});&#x000A;&#x000A;App.IndexRoute = Ember.Route.extend({&#x000A;  model: function() {&#x000A;    var people = [&#x000A;      App.Person.create({&#x000A;        firstName: "Matt",&#x000A;        lastName: "Gauger"&#x000A;      })&#x000A;    ];&#x000A;    return people;&#x000A;  }&#x000A;});</textarea>
     </p>
       </div>
       <div class='spacer bottom'></div>
     </section>
-    <section class='full-background slide test'>
+    <section class='slide'>
       <div class='spacer top'></div>
       <div class='content'>
-        <h1>With a Background Image</h1>
+        <h2>Thanks!</h2>
+        
+        <h3><a href="https://twitter.com/mathiasx">twitter.com/mathiasx</a></h3>
+        
+        <h3><a href="https://github.com/mathias">github.com/mathias</a></h3>
+        
+        <h3>Presentation: <a href="http://blog.mattgauger.com/madrailers-ember-rails/">blog.mattgauger.com/madrailers-ember-rails/</a></h3>
       </div>
       <div class='spacer bottom'></div>
     </section>
