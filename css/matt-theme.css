@@ -39,7 +39,7 @@
   color: #fff;
 }
 .deck-container .deck-prev-link:hover, .deck-container .deck-prev-link:focus, .deck-container .deck-next-link:hover, .deck-container .deck-next-link:focus {
-  background: #c00;
+  background: #AEE239;
   text-decoration: none;
 }
 .deck-container .deck-status {

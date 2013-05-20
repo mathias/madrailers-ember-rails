@@ -14,6 +14,12 @@
 
 ![Bendyworks logo](images/bendy.png)
 
+<div class="notes">
+Stephen, my boss here at Bendyworks, asked me to give this talk after I gave a brownbag technical talk on Ember-rails and how I'd used it for the Snow Mobile Raffle app.
+
+I want to show you how easy it is to include Ember-rails into your Rails app, and to use the default generators to start building your Ember app. And I'll have some lessons learned at the end.
+</div>
+
 !SLIDE
 
 ## What is Ember.js?
@@ -21,7 +27,23 @@
 A framework for JS MVC apps
 
 <div class="notes">
+So Ember.js is a framework for JS MVC apps
 Or, another way of architecting these fancy websites we keep trying to build
+- We're building more complicated apps.
+- More work is being done on the clientside.
+- We're integrating with more external APIs where we don't control the server.
+- It's cool!
+</div>
+
+!SLIDE
+![Bendyworks logo](images/emberjscom.png)
+
+!SLIDE
+
+## Why Ember.js?
+
+<div class="notes">
+Why do we need another JS MVC framework?
 </div>
 
 !SLIDE
@@ -99,12 +121,14 @@ App.IndexRoute = Ember.Route.extend({
 
 ## Thanks! Questions?
 
-### Online I am:
+### I am:
 ### [twitter.com/mathiasx](https://twitter.com/mathiasx)
 ### [github.com/mathias](https://github.com/mathias)
 
 ### This presentation lives at:
 ### [blog.mattgauger.com/madrailers-ember-rails/](http://blog.mattgauger.com/madrailers-ember-rails/)
+### Outline (with notes):[gist.github.com???](#)
+
 
 !NOTE
 
