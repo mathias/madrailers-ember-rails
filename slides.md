@@ -1,4 +1,4 @@
-# .
+# ember-rails hands-on intro
 
 !SLIDE
 
@@ -18,6 +18,9 @@ def method
   puts "Hello, World"
 end
 ```
+
+<div class="notes">
+</div>
 
 !NOTES
 
