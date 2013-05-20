@@ -97,11 +97,14 @@ App.IndexRoute = Ember.Route.extend({
 
 !SLIDE
 
-## Thanks!
+## Thanks! Questions?
 
+### Online I am:
 ### [twitter.com/mathiasx](https://twitter.com/mathiasx)
 ### [github.com/mathias](https://github.com/mathias)
-### Presentation: [blog.mattgauger.com/madrailers-ember-rails/](http://blog.mattgauger.com/madrailers-ember-rails/)
+
+### This presentation lives at:
+### [blog.mattgauger.com/madrailers-ember-rails/](http://blog.mattgauger.com/madrailers-ember-rails/)
 
 !NOTE
 
