@@ -22,6 +22,18 @@ I want to show you how easy it is to include Ember-rails into your Rails app, an
 
 !SLIDE
 
+## Disclaimer:
+
+### I spend most of my time writing Backbone code that talks to Ruby services right now
+
+<div class="notes">
+Quite a few of us on the Bendyworks team have been writing Backbone since late last year on a big project for a client, and so I'm most familiar with Backbone.
+
+I have a lot of good things to say about Backbone, and a lot of hope for Ember. I don't always have good thing sto say about either Ember or Backbone, though.
+</div>
+
+!SLIDE
+
 ## What is Ember.js?
 
 A framework for JS MVC apps
@@ -75,8 +87,8 @@ This is going to be for a JavaScript MVC app, which is a little different than w
 
 ## Templates
 
-### strings that we will render with data to present the user interface
-### (Not in the acroynm)
+### Strings that we will render with data to present the user interface
+#### (Note: not in the acroynm)
 
 <div class="notes">
 In Rails, this is what we call the View.. notice how we never write a View class in Rails? You could, but you don't have to.
@@ -84,21 +96,21 @@ In Rails, this is what we call the View.. notice how we never write a View class
 
 !SLIDE
 
-## View
+## View classes
 
 ### Translates browser events to application events
 ### Binds data to a template
 
 !SLIDE
 
-## Controller
+## Controller classes
 
 ### Stores representations of application state
 #### ie, a collection of model instances that came back from our API
 
 !SLIDE
 
-## Model
+## Model classes
 
 ### Stores persistant state
 #### Typically loaded and saved to a server, but doesn't have to be
@@ -106,7 +118,7 @@ In Rails, this is what we call the View.. notice how we never write a View class
 
 !SLIDE
 
-## Router
+## Router and route classes
 
 ### Manages application state
 #### Most importantly, handles URLs and sends messages the correct Controller for what is being requested
@@ -123,37 +135,39 @@ In Rails, this is what we call the View.. notice how we never write a View class
 
 !SLIDE
 
-## Ember.js is responsible for:
+## Opinionated about what your API should look like
 
-### Controlling the entire viewport
-#### (versus other frameworks which do not)
-
-!SLIDE
-
-## Ember.js is responsible for:
-
-### Getting data from our backend server
-#### In this case, Rails
+### This is the volatile `ember-data` project; now a part of Ember.js itself
 
 <div class="notes">
-But you can use other backends that conform to the ember-data API.
-Notably, Firebase is available as an ember-data backend.
+Other frameworks let you define the API and how you talk to it. But that's at the expense of developer time -- now you have to spend time maintaining your mapping to your API in addition to the business logic!
 </div>
 
 !SLIDE
 
-## Ember.js is responsible for:
-## Rendering templates with the data
+## Ember handles rendering and re-rendering DOM elements that are bound to data
+
+### Other frameworks leave calling `render` up to you
+
+<div class="notes">
+As a result, this means that Ember performs best when it takes over the entire viewport.
+
+This is unlike other frameworks in that you can't just use the framework for part of your page. It wants to be the whole app.
+</div>
 
 !SLIDE
 
-## Ember.js is responsible for:
-## Handling interaction with the user
+## Push state (history), URLs are handled by Ember by default
+
+### Other frameworks let you turn this on.
 
 !SLIDE
 
-## Ember.js is responsible for:
-## Saving changed data back to the backend
+## Ember.js is a whole framework
+
+### Other frameworks (like Backbone) are more like LEGO blocks in my opinion.
+#### You can combine those frameworks in many ways.
+#### Ember has a set of reasonable defaults it expects you to play with.
 
 !SLIDE
 
@@ -197,17 +211,3 @@ App.IndexRoute = Ember.Route.extend({
 ### This presentation lives at:
 ### [blog.mattgauger.com/madrailers-ember-rails/](http://blog.mattgauger.com/madrailers-ember-rails/)
 ### Outline (with notes):[gist.github.com???](#)
-
-
-!NOTE
-
-``` ruby
-def method
-  puts "Hello, World"
-  more code
-  more                     code
-
-
-  more
-end
-```
