@@ -483,3 +483,7 @@ Well, remember our EntriesController is an ArrayController, and it's gonna expos
 This presentation lives at:
 
 [blog.mattgauger.com/madrailers-ember-rails/](http://blog.mattgauger.com/madrailers-ember-rails/)
+
+My example raffle app lives at:
+
+[github.com/mathias/snow_mobile_raffle](https://github.com/mathias/snow_mobile_raffle)
