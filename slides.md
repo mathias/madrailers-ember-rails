@@ -194,7 +194,7 @@ Because [Discourse](https://github.com/discourse/discourse) is a forum system on
 ## Rails resource generators:
 
 ``` bash
-$ rails generate entry \\
+$ rails generate resource entry \\
    name:string email:string \\
    message:text
 ```
